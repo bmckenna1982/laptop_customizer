@@ -7,7 +7,7 @@ class Features extends React.Component {
         return (
             <form className="main__form">
                 <h2>Customize your laptop</h2>
-                <FeaturesList selectedState={this.props.selectedState} features={this.props.features} onChange={this.props.updateFeature}/>
+                <FeaturesList USCurrencyFormat={this.props.USCurrencyFormat} selectedState={this.props.selectedState} features={this.props.features} updateFeature={this.props.updateFeature}/>
                 {/* {features} **replace with FeaturesList component **FeatureList component includes FeatureOptions coponent */}
           </form>
         )

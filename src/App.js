@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // Normalizes string as a slug - a string that is safe to use
 // in both URLs and html attributes
-import slugify from 'slugify';
+// import slugify from 'slugify';
 
 import './App.css';
 import Header from './Header/Header'
@@ -16,13 +16,7 @@ import Cart from './Cart/Cart';
 //   currency: 'USD'
 // });
 
-USCurrencyFormat = (number) => {
-  let currency = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD'
-    });    
-  return currency.format(number)
-};
+
 
 class App extends Component {
   constructor(props) {
@@ -49,6 +43,14 @@ class App extends Component {
     };
   }
 
+  USCurrencyFormat = (number) => {
+    let currency = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+      });    
+    return currency.format(number)
+  };
+
   updateFeature = (feature, newValue) => {
     const selected = Object.assign({}, this.state.selected);
     selected[feature] = newValue;
@@ -64,8 +66,8 @@ class App extends Component {
       <div className="App">
         <Header />        
         <main>
-          <Features selectedState={this.state.selected} features={this.props.features} onChange={this.updateFeature()}/>          
-          <Cart selectedState={this.state.selected} USCurrencyFormat={this.USCurrencyFormat()}/>          
+          <Features USCurrencyFormat={number => this.USCurrencyFormat(number)} selectedState={this.state.selected} features={this.props.features} updateFeature={(feature, newValue) => this.updateFeature(feature, newValue)}/>          
+          <Cart selectedState={this.state.selected} USCurrencyFormat={number => this.USCurrencyFormat(number)}/>          
         </main>
       </div>
     );

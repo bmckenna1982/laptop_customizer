@@ -11,7 +11,7 @@ class Cart extends React.Component {
                 <CartList selectedState={this.props.selectedState} USCurrencyFormat={this.props.USCurrencyFormat}/>
                 <hr />
                 {/* {summary} **replace with CartList **CartList component includes CartItem component */}
-                <Total USCurrencyFormat={this.props.USCurrencyFormat}/>
+                <Total USCurrencyFormat={this.props.USCurrencyFormat} selectedState={this.props.selectedState}/>
                 {/* **replace below till section with Total component
                 <div className="summary__total">
                 <div className="summary__total__label">Total</div>
