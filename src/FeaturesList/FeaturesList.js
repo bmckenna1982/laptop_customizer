@@ -1,21 +1,12 @@
 import React from 'react';
 import './FeaturesList.css';
 import FeatureOption from '../FeatureOption/FeatureOption';
-import slugify from 'slugify';
 
-class FeaturesList extends React.Component {
-    // build all the fieldsets
-    
-    render() {
-        console.log(this.props.features)
-        //for (feature in this.props.features) {
-            //console.log(feature.)
-        //}
+
+class FeaturesList extends React.Component {  
+    render() {        
         const features = Object.keys(this.props.features).map((feature, idx) => {
-            const featureHash = feature + '-' + idx;
-            console.log(featureHash)
-            console.log(feature)
-            console.log(this.props.features)
+            const featureHash = feature + '-' + idx;            
             return (           
                 <fieldset className="feature" key={featureHash}>
                     <legend className="feature__name">
